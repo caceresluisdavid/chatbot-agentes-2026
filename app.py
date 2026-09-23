@@ -66,13 +66,13 @@ if check_password():
             st.session_state["admin_desbloqueado"] = False
             st.rerun()
 
-    # 4. CONFIGURACIÓN GEMINI
+    # 4. CONFIGURACIÓN GEMINI (gemini-3.6-flash)
     @st.cache_resource
     def inicializar_modelo():
         API_KEY = st.secrets["GEMINI_API_KEY"]
         genai.configure(api_key=API_KEY)
         return genai.GenerativeModel(
-            'gemini-2.5-flash',
+            'gemini-3.6-flash',
             generation_config={"temperature": 0.0}
         )
 
